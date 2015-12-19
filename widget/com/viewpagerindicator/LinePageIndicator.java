@@ -372,7 +372,8 @@ public class LinePageIndicator extends View implements PageIndicator {
 				result = Math.min(result, specSize);
 			}
 		}
-		return (int) FloatMath.ceil(result);
+//		return (int) FloatMath.ceil(result);
+		return 10;
 	}
 
 	/**
@@ -399,7 +400,8 @@ public class LinePageIndicator extends View implements PageIndicator {
 				result = Math.min(result, specSize);
 			}
 		}
-		return (int) FloatMath.ceil(result);
+//		return (int) FloatMath.ceil(result);
+		return 10;
 	}
 
 	@Override

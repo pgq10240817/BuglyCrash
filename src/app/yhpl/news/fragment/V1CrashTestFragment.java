@@ -1,29 +1,31 @@
 package app.yhpl.news.fragment;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Intent;
+import java.io.File;
+
+import com.android.volley.toolbox.DiskBasedCache;
+import com.google.okhttp.OkHttpConnection;
+import com.google.okhttp.libcore.util.Libcore;
+import com.jakewharton.disklrucache.DiskLruCache;
+
 import android.content.pm.PackageManager;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.os.AsyncTask;
+import android.os.Environment;
+import android.util.Log;
+import android.util.LruCache;
 import android.view.View;
-import android.yhpl.util.log.MyLog;
 import app.yhpl.news.R;
-import app.yhpl.news.cross.V1Crash148Activity;
+import app.yhpl.news.crash.JNI;
+import app.yhpl.news.util.Jni;
 
 public class V1CrashTestFragment extends V1NormalFragment {
 
 	@Override
 	public void initViews(View root) {
 		super.initViews(root);
-		root.findViewById(R.id.crash_147).setOnClickListener(this);
+		root.findViewById(R.id.crash_156).setOnClickListener(this);
 
-		root.findViewById(R.id.crash_148).setOnClickListener(this);
-		root.findViewById(R.id.crash_149).setOnClickListener(this);
-		root.findViewById(R.id.crash_151).setOnClickListener(this);
-		root.findViewById(R.id.crash_164).setOnClickListener(this);
-		root.findViewById(R.id.crash_166).setOnClickListener(this);
+		root.findViewById(R.id.crash_161).setOnClickListener(this);
+		root.findViewById(R.id.crash_167).setOnClickListener(this);
 
 		// root.findViewById(R.id.crash_147).setEnabled(false);
 		// root.findViewById(R.id.crash_151).setEnabled(false);
@@ -35,31 +37,18 @@ public class V1CrashTestFragment extends V1NormalFragment {
 	public boolean processOnClick(View view) {
 		boolean result = false;
 		switch (view.getId()) {
-		case R.id.crash_147:
-			test147();
+		case R.id.crash_156:
+			test156();
 			result = true;
 			break;
-		case R.id.crash_148:
-			test148();
+		case R.id.crash_161:
+			test161();
 			result = true;
 			break;
-		case R.id.crash_149:
-			test149();
+		case R.id.crash_167:
+			test167();
 			result = true;
 			break;
-		case R.id.crash_151:
-			test151();
-			result = true;
-			break;
-		case R.id.crash_164:
-			test164();
-			result = true;
-			break;
-		case R.id.crash_166:
-			test166();
-			result = true;
-			break;
-
 		default:
 			break;
 		}
@@ -76,67 +65,74 @@ public class V1CrashTestFragment extends V1NormalFragment {
 		return sb.toString();
 	}
 
-	private void test147() {
-		// getActivity().finish();
-		PackageManager mPackageManager = getActivity().getPackageManager();
-		String featureName = getLargeString();
-		MyLog.logD("featureName size " + featureName.length());
-		boolean hasFeture = mPackageManager.hasSystemFeature(featureName);
-		MyLog.logD("hasFeture size " + hasFeture);
-	}
-
-	private void test148() {
-		Intent intent = new Intent(getActivity(), V1Crash148Activity.class);
-		getActivity().startActivityForResult(intent, 100);
-	}
-
-	private void test149() {
-		MyLog.logD("test149 begin");
-		// Callable pAccount = new PrivateAccount();
-		// FutureTask futureTask = new FutureTask(pAccount);
-		// Thread pAccountThread = new Thread(futureTask);
-		// pAccountThread.start();
-		// try {
-		//
-		// futureTask.get(1000, TimeUnit.MILLISECONDS);
-		// } catch (InterruptedException e) {
-		// e.printStackTrace();
-		// } catch (ExecutionException e) {
-		// e.printStackTrace();
-		// } catch (TimeoutException e) {
-		// e.printStackTrace();
-		// }
-		// MyLog.logD("test149 end");
+	private void test156() {
 
 	}
 
-	private void test151() {
-		new Thread(new Runnable() {
+	// public void SubmitPost(String url, String filename1) {
+	//
+	// HttpClient httpclient = new DefaultHttpClient();
+	// try {
+	// Log.e("myTag", "~~~~~~~~~~~~~~  1111111111");
+	// HttpPost httppost = new HttpPost(url);
+	// FileBody bin = new FileBody(new File(filename1));
+	// StringBody comment = new StringBody(filename1);
+	// MultipartEntity reqEntity = new MultipartEntity();
+	// reqEntity.addPart("file1", bin);// file1为请求后台的File upload;属性
+	// // reqEntity.addPart("file2", bin2);// file2为请求后台的File upload;属性
+	// reqEntity.addPart("filename1", comment);// filename1为请求后台的普通参数;属性
+	// httppost.setEntity(reqEntity);
+	// Log.e("myTag", "~~~~~~~~~~~~~~ 222 ");
+	//
+	// HttpResponse response = httpclient.execute(httppost);
+	//
+	// int statusCode = response.getStatusLine().getStatusCode();
+	//
+	// if (statusCode == HttpStatus.SC_OK) {
+	//
+	// System.out.println("服务器正常响应.....");
+	//
+	// HttpEntity resEntity = response.getEntity();
+	//
+	// System.out.println(EntityUtils.toString(resEntity));//
+	// httpclient自带的工具类读取返回数据
+	//
+	// }
+	//
+	// } catch (ParseException e) {
+	// Log.e("myTag", "ParseException:" + e.getMessage());
+	// e.printStackTrace();
+	// } catch (IOException e) {
+	// Log.e("myTag", "IOException:" + e.getMessage());
+	// e.printStackTrace();
+	// } finally {
+	// try {
+	// httpclient.getConnectionManager().shutdown();
+	// } catch (Exception ignore) {
+	//
+	// }
+	// }
+	//
+	// Log.e("myTag", "~~~~~~~~~~~~~~ 333333333 ");
+	// }
+
+	private void test161() {
+		new AsyncTask<Void, Void, Void>() {
 
 			@Override
-			public void run() {
-				AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-				builder.setCancelable(false).setTitle("title").setMessage("msg")
-						.setNegativeButton(android.R.string.cancel, null);
-				AlertDialog dialog = builder.create();
-				dialog.show();
+			protected Void doInBackground(Void... params) {
+				File f = new File(Environment.getExternalStorageDirectory(), "1424745742580.jpeg");
+				if (f.isFile()) {
+					throw new IllegalArgumentException("not a directory:");
+				}
+				return null;
 			}
-		}).start();
+		}.execute();
+
 	}
 
-	private void test164() {
-		FragmentManager fragmentManager = getChildFragmentManager();
-		FragmentTransaction ft = fragmentManager.beginTransaction();
-		Fragment fragment = new V1Crash164Fragment();
-		ft.add(R.id.content, fragment);
-		ft.addToBackStack(null);
-		ft.commit();
-	}
-
-	private void test166() {
-		Dialog d = new Dialog(getActivity());
-		d.setTitle(getLargeString());
-		d.show();
+	private void test167() {
+		Jni.SetVersionCode();
 
 	}
 

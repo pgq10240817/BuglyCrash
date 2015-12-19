@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import app.yhpl.kit.application.HttpApplicationController;
 import app.yhpl.kit.log.Logger;
 import app.yhpl.kit.services.CancelableTask;
-import app.yhpl.kit.services.network.HippoRequest;
 import app.yhpl.kit.thread.Runtask;
 import app.yhpl.kit.thread.ThreadPool;
 
@@ -58,10 +56,10 @@ public class ABBasePresenter<V extends ABActivityViewer, I extends ABInteractor>
 		ThreadPool.go(runtask);
 	}
 
-	public void addHttpRequest(HippoRequest request) {
-		addCancelableTask(request);
-		HttpApplicationController.getInstance().addToRequestQueue(request);
-	}
+//	public void addHttpRequest(HippoRequest request) {
+//		addCancelableTask(request);
+//		HttpApplicationController.getInstance().addToRequestQueue(request);
+//	}
 
 	public V getViewer() {
 		return viewer;

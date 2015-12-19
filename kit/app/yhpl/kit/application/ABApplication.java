@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.widget.ImageView;
 import app.yhpl.kit.log.Logger;
-import app.yhpl.kit.services.network.http.ABHttpUtil;
 import app.yhpl.kit.thread.ThreadPool;
 import app.yhpl.kit.utils.ABPrefsUtil;
 import app.yhpl.news.R;
@@ -109,7 +108,7 @@ public class ABApplication extends Application {
 	}
 
 	protected void initHttpConfig() {
-		ABHttpUtil.initHttpConfig(null, null);
+//		ABHttpUtil.initHttpConfig(null, null);
 	}
 
 }

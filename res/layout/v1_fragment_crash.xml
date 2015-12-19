@@ -11,51 +11,27 @@
         android:padding="20dp" >
 
         <TextView
-            android:id="@+id/crash_147"
+            android:id="@+id/crash_156"
             style="@style/Common.Button.Channels"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="147" />
+            android:text="156" />
 
         <TextView
-            android:id="@+id/crash_148"
+            android:id="@+id/crash_161"
             style="@style/Common.Button.Channels"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="148" />
+            android:text="161" />
 
         <TextView
-            android:id="@+id/crash_149"
+            android:id="@+id/crash_167"
             style="@style/Common.Button.Channels"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="149" />
-
-        <TextView
-            android:id="@+id/crash_151"
-            style="@style/Common.Button.Channels"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="151" />
-
-        <TextView
-            android:id="@+id/crash_164"
-            style="@style/Common.Button.Channels"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="164" />
-
-        <TextView
-            android:id="@+id/crash_166"
-            style="@style/Common.Button.Channels"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="166" />
+            android:text="167" />
     </LinearLayout>
 
 </FrameLayout>
