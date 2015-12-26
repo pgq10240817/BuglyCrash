@@ -1,5 +1,6 @@
 package app.yhpl.news.adapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.util.SparseArray;
@@ -62,6 +63,26 @@ public abstract class V1BaseAdapter<T extends BaseBean> extends android.widget.B
 
 	public void addData(List<T> addData) {
 		addData(addData, false);
+	}
+
+	public void appendSingleData(T addData) {
+		if (addData == null) {
+			return;
+		}
+		if (mData == null) {
+			mData = new ArrayList<T>(0);
+			mData.add(addData);
+		} else {
+			mData.add(addData);
+		}
+		notifyDataSetChanged();
+	}
+
+	public void clear() {
+		if (mData != null) {
+			mData.clear();
+			notifyDataSetChanged();
+		}
 	}
 
 	@Override

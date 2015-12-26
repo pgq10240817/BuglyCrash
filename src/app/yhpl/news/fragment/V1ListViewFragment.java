@@ -16,7 +16,7 @@ import app.yhpl.news.tag.BundleKeys;
 import com.android.volley.VolleyError;
 
 public class V1ListViewFragment extends V1DataFragment {
-	private XListView mListview;
+	protected XListView mListview;
 
 	@Override
 	public void initArguments(Bundle bundle) {

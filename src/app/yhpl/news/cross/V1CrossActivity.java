@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.Menu;
+import app.yhpl.kit.widget.XMode;
 import app.yhpl.news.R;
-import app.yhpl.news.fragment.V1CrashTestFragment;
+import app.yhpl.news.adapter.AdapterEnum;
+import app.yhpl.news.fragment.V1BlListViewFragment;
 import app.yhpl.news.res.ActivityConfig;
+import app.yhpl.news.res.ListViewConfig;
 import app.yhpl.news.tag.BundleKeys;
 
 public class V1CrossActivity extends LogActivity {
@@ -62,8 +65,20 @@ public class V1CrossActivity extends LogActivity {
 		// child.setArguments(config.getBundle());
 		// return child;
 
-		Fragment child = Fragment.instantiate(this, V1CrashTestFragment.class.getName());
+		// 2. 蓝牙
+		Fragment child = Fragment.instantiate(this, V1BlListViewFragment.class.getName());
+		ListViewConfig config = new ListViewConfig();
+		config.putInt(BundleKeys.KEY_I_TITLE, R.string.title_channel);
+		config.putInt(BundleKeys.KEY_I_TITLE_LEFT, R.drawable.v1_icon_titlebar_back);
+		config.putInt(BundleKeys.KEY_I_LAYOUT, R.layout.v1_fragment_listview_titlebar);
+		config.putInt(BundleKeys.KEY_I_LOADER_MODE, XMode.DISABLED.ordinal());
+		config.putInt(BundleKeys.KEY_I_ADAPTER, AdapterEnum.CMD.getFlag());
+		child.setArguments(config.getBundle());
 		return child;
+
+		// Fragment child = Fragment.instantiate(this,
+		// V1CrashTestFragment.class.getName());
+		// return child;
 	}
 	// @Override
 	// public void processOnClick(View v) {

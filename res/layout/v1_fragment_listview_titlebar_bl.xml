@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@id/div"
+        layout="@layout/v1_widget_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="@dimen/default_titlebar_height"
+        android:orientation="horizontal"
+        android:padding="1dp" >
+
+        <TextView
+            android:id="@+id/bl_start"
+            style="@style/Common.Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:text="start" />
+
+        <TextView
+            android:id="@+id/bl_clear"
+            style="@style/Common.Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:text="clear" />
+    </LinearLayout>
+
+    <app.yhpl.kit.widget.XListView
+        android:id="@id/listview"
+        style="@style/ListView.Common"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="90dp" >
+    </app.yhpl.kit.widget.XListView>
+
+    <app.yhpl.kit.widget.EmptyView
+        android:id="@id/emptyview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="90dp" >
+    </app.yhpl.kit.widget.EmptyView>
+
+</FrameLayout>

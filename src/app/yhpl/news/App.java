@@ -19,7 +19,7 @@ public class App extends ABApplication {
 	public void onCreate() {
 		super.onCreate();
 		DisplayUtil.init(getResources().getDisplayMetrics());
-		CrashReport.initCrashReport(this, BuglyTag.APPID, false);
+		// CrashReport.initCrashReport(this, BuglyTag.APPID, false);
 		// UserManager.getInstance().updateUserPurse();
 	}
 

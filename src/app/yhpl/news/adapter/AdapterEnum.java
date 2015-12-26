@@ -3,7 +3,7 @@ package app.yhpl.news.adapter;
 import android.widget.BaseAdapter;
 
 public enum AdapterEnum {
-	CHANNESL(0, V1ChannelsAdapter.class), NEWS(1, V1NewsAdapter.class);
+	CHANNESL(0, V1ChannelsAdapter.class), NEWS(1, V1NewsAdapter.class), CMD(2, V1TestCmdAdapter.class);
 	private int mFlag;
 	private Class<? extends BaseAdapter> clz;
 
